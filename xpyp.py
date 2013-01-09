@@ -31,12 +31,13 @@ def print(text = '', end = '\n'):
 class xpyp:
     def __init__(self, remove_comments      = True, remove_blank_lines = True,
                        remove_documentation = True, remove_spaces      = True,
-                       compress_indention   = True):
+                       compress_indention   = True, parse_escapes      = True):
         self.removeComments = remove_comments
         self.removeBlankLines = remove_blank_lines
         self.removeDocumentation = remove_documentation
         self.removeSpaces = remove_spaces
         self.compressIndention = compress_indention
+        self.parseEscapes = parse_escapes
     
     
     
@@ -56,6 +57,7 @@ class xpyp:
         if self.removeSpaces        : self.packSpaces       (script)
         if self.removeBlankLines    : self.packBlankLines   (script)
         if self.compressIndention   : self.packIndention    (script)
+        if self.parseEscapes        : self.packEscapes      (script)
         
         script = '\n'.join(script) + '\n'
         with open(scriptfile, 'wb'):
@@ -81,6 +83,10 @@ class xpyp:
     
     
     def packIndention(self, code):
+        pass
+    
+    
+    def packEscapes(self, code):
         pass
 
 
