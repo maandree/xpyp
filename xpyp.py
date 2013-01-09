@@ -182,6 +182,7 @@ if __name__ == '__main__':
         encoding = packer.getEncoding(scriptfile)
         if encoding != None:
             packer.pack(scriptfile, encoding)
+            printerr('Compressed file: ' + scriptfile)
         else:
-            printerr('Cannot not compress file')
+            printerr('Cannot not compress file: ' + scriptfile)
 
