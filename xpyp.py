@@ -44,6 +44,11 @@ class xpyp:
     
     
     def getEncoding(self, scriptfile):
+        out = Popen(['file', '--', scriptfile], stdout=PIPE).communicate()[0].decode('utf-8', 'replace')
+        if out.startswith(scriptfile + ': Python script, ') and out.endswith(' text executable\n'):
+            out = out[len(scriptfile + ': Python script, '):]
+            out = out.split(' ')[0].lower()
+            return out
         return None
     
     
@@ -175,7 +180,6 @@ if __name__ == '__main__':
         packer = xpyp(c, d, s, b, i, e, l)
     for scriptfile in scriptfiles:
         encoding = packer.getEncoding(scriptfile)
-        encoding = 'utf-8' if encoding is None else encoding ### FIXME (while testing)
         if encoding != None:
             packer.pack(scriptfile, encoding)
         else:
