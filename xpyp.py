@@ -70,7 +70,25 @@ class xpyp:
     
     
     def packComments(self, code):
-        pass
+        qoute = None
+        esc = False
+        lineindex = -1
+        for line in code:
+            n = len(line)
+            lineindex += 1
+            for i in range(0, n):
+                if esc:
+                    esc = False
+                elif quote is not None:
+                    if line[i] == quote:
+                        quote = None
+                elif line[i] in ('\'', '"'):
+                    quote = line[i]
+                elif line[i] == '#':
+                    if (i == 0) and (line is code[0]) and (n > 1) and (line[0:2] == '#!'):
+                        if not (('-*-' in line[i:]) and ('coding' in line[i:])):
+                            code[lineindex] = line[:i]
+                    break
     
     
     def packDocumentation(self, code):
