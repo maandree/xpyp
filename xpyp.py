@@ -62,7 +62,7 @@ class xpyp:
         if self.parseEscapes        : self.packEscapes      (script)
         if self.removeLines         : self.packLines        (script)
         
-        script = '\n'.join(script) + '\n'
+        script = '\n'.join(script)
         with open(scriptfile, 'wb') as file:
             file.write(script.encode(encoding.lower()))
             file.flush()
@@ -82,10 +82,12 @@ class xpyp:
                 elif quote is not None:
                     if line[i] == quote:
                         quote = None
+                    elif line[i] == '\\':
+                        esc = True
                 elif line[i] in ('\'', '"'):
                     quote = line[i]
                 elif line[i] == '#':
-                    if (i == 0) and (line is code[0]) and (n > 1) and (line[0:2] == '#!'):
+                    if not ((i == 0) and (line is code[0]) and (n > 1) and (line[0:2] == '#!')):
                         if not (('-*-' in line[i:]) and ('coding' in line[i:])):
                             code[lineindex] = line[:i]
                     break
