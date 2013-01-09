@@ -49,10 +49,10 @@ class xpyp:
     
     def pack(self, scriptfile, encoding):
         script = []
-        with open(scriptfile, 'rb'):
-            script = scriptfile.read().decode(encoding.lower(), 'replace')
+        with open(scriptfile, 'rb') as file:
+            script = file.read().decode(encoding.lower(), 'replace')
             script = script.replace('\r', '\n').replace('\f', '\n')
-            script = [line.replace('\n') for line in script.split('\n')]
+            script = [line.replace('\n', '') for line in script.split('\n')]
         
         if self.removeComments      : self.packComments     (script)
         if self.removeDocumentation : self.packDocumentation(script)
@@ -63,14 +63,14 @@ class xpyp:
         if self.removeLines         : self.packLines        (script)
         
         script = '\n'.join(script) + '\n'
-        with open(scriptfile, 'wb'):
-            scriptfile.write(script.encode(encoding.lower()))
-            scriptfile.flush()
+        with open(scriptfile, 'wb') as file:
+            file.write(script.encode(encoding.lower()))
+            file.flush()
     
     
     
     def packComments(self, code):
-        qoute = None
+        quote = None
         esc = False
         lineindex = -1
         for line in code:
