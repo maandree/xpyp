@@ -102,8 +102,33 @@ class xpyp:
     
     
     def packBlankLines(self, code):
-        pass
-    
+        quote = None
+        esc = False
+        lineindex = -1
+        remove = []
+        for line in code:
+            n = len(line)
+            lineindex += 1
+            for i in range(0, n):
+                if esc:
+                    esc = False
+                elif quote is not None:
+                    if line[i] == quote:
+                        quote = None
+                    elif line[i] == '\\':
+                        esc = True
+                elif line[i] in ('\'', '"'):
+                    quote = line[i]
+                elif line[i] == '#':
+                    break
+            if (quote is None) and not esc:
+                if len(line.replace(' ', '').replace('\t', '').replace(' ', '')) == 0:
+                    remove.append(lineindex)
+                    lineindex -= 1
+        for i in remove:
+            del code[i]
+        if (len(code) == 0) or (len(code[len(code) - 1]) > 0):
+            code.append('')
     
     def packIndention(self, code):
         pass
