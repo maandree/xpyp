@@ -138,7 +138,7 @@ if __name__ == '__main__':
         elif arg == '-i' : i = True
         elif arg == '-e' : e = True
         elif arg == '-l' : l = True
-        elif not arg.startsWith('-'):
+        elif not arg.startswith('-'):
             scriptfiles.append(arg)
         else:
             printerr('Unrecognised option: ' + arg)
@@ -147,6 +147,7 @@ if __name__ == '__main__':
         packer = xpyp(c, d, s, b, i, e, l)
     for scriptfile in scriptfiles:
         encoding = packer.getEncoding(scriptfile)
+        encoding = 'utf-8' if encoding is None else encoding ### FIXME (while testing)
         if encoding != None:
             packer.pack(scriptfile, encoding)
         else:
