@@ -11,3 +11,18 @@ test.py
 /dist/*/*/*
 !/dist/*/*/PKGBUILD
 
+/xpyp.aux
+/xpyp.cp
+/xpyp.cps
+/xpyp.fn
+/xpyp.ky
+/xpyp.log
+/xpyp.pg
+/xpyp.toc
+/xpyp.tp
+/xpyp.vr
+/xpyp.op
+/xpyp.ops
+/xpyp.pgs
+/xpyp.vrs
+
