@@ -53,12 +53,12 @@ Texts. A copy of the license is included in the section entitled
 
 
 @menu
-* Overview::                        Overview of @command{xpyp}
-* Invoking::                        Invoking @command{xpyp}
-* License of xpyp::                 Summary of the license of the program
-* GNU General Public License::      The license of the program
-* GNU Free Documentation License::  The license of this manual
-* Concept index::                   Concept index
+* Overview::                          Overview of @command{xpyp}
+* Invoking::                          Invoking @command{xpyp}
+* License of xpyp::                   Summary of the license of the program
+* GNU Affer General Public License::  The license of the program
+* GNU Free Documentation License::    The license of this manual
+* Concept index::                     Concept index
 @end menu
 
 
@@ -90,22 +90,22 @@ xpyp – Python script compressor
 Copyright © 2013  Mattias Andrée (maandree@@member.fsf.org)
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
+it under the terms of the GNU Affero General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+GNU Affero General Public License for more details.
 
-You should have received a copy of the GNU General Public License
+You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 @end flushleft
 
-@node GNU General Public License
-@appendix GNU General Public License
-@include gpl.texinfo
+@node GNU Affero General Public License
+@appendix GNU Affero General Public License
+@include agpl.texinfo
 
 @node GNU Free Documentation License
 @appendix GNU Free Documentation License
